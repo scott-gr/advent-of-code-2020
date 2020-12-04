@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+:root {
+  --white: #f8edeb;
+  --darkgreen: #152f30;
+  --green: #285a51;
+  --maroon: #5b4045;
+  --red: #8f4c55;
+  --lightred: #ce4f5a;
+}
+
+body, .prompt-text {
+  background-color: var(--white);
+  color: var(--maroon);
+  font-family: 'Cabin', sans-serif;
+}
+
+.show {
+  opacity: 1;
+}
+.hide {
+  opacity: 0;
+  transition: opacity 400ms;
+}
+.code-text {
+  background-color: var(--darkgreen);
+  color: var(--white);
+}

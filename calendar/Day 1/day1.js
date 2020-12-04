@@ -201,6 +201,8 @@ let list = `997
 
 const arr = list.split('\n').map(Number);
 console.log(arr);
+
+// Target sum for the puzzle was 2020
 const sum = 2020;
 
 const findpair = (arr, sum) => {
