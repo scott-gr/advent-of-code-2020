@@ -9,10 +9,16 @@
   --lightred: #ce4f5a;
 }
 
-body, .prompt-text {
+body,
+.prompt-text {
   background-color: var(--white);
   color: var(--maroon);
   font-family: 'Cabin', sans-serif;
+}
+
+.hero {
+  color: var(--green);
+  font-size: 3rem;
 }
 
 .show {
@@ -25,4 +31,48 @@ body, .prompt-text {
 .code-text {
   background-color: var(--darkgreen);
   color: var(--white);
+}
+
+.container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-areas:
+
+    'header header header header'
+    ' . main main . '
+    'footer footer footer footer';
+}
+.days-grid {
+  display: grid;
+  width: 100%;
+  justify-content: space-around;
+  align-content: space-around;
+  row-gap: 2rem;
+  column-gap: .5rem;
+  grid-area: main;
+  white-space: nowrap;
+  grid-template-columns:  auto auto auto auto auto ;
+
+}
+
+.header {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  grid-area: header;
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
+.day-block {
+  background-color: var(--red);
+  height: 60px;
+  width: 60px;
+  color: var(--white);
+  text-align: center;
+  border-color: var(--lightred);
+  border-radius: 20%;
+  border-width: medium;
+  border-style: outset;
 }
