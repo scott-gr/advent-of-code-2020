@@ -1,5 +1,4 @@
-let list = 
-`5-11 t: glhbttzvzttkdx
+let list = `5-11 t: glhbttzvzttkdx
 2-4 f: cfkmf
 9-12 m: mmmmmmmmmmmmm
 2-10 z: vghqbzbcxf
@@ -998,24 +997,37 @@ let list =
 1-5 c: cwbbccccccb
 4-11 z: zrxzszzlzvzzzmdkt
 17-19 b: bppptxztffxxqnlpbbb
-3-9 n: nnnlncrnnnnn`
+3-9 n: nnnlncrnnnnn`;
+///these steps could probably be combined, but this should be easy to follow
+// 1. remove the dashes and colons, make list into an array seperated by line break
+let data = list.replace(/\-/g, ' ').replace(/\:/g, '').split`\n`;
 
+// 2. split each line into its own array
+let array = [];
+data.forEach(function (i) {
+  array.push(i.split` `);
+});
 
+//3. Create an object for each key:value pair, then combine all four pairs to one object. These objects are now indexes in a new array 'passwords'
+let passwords = [];
+array.forEach(function (i) {
+  let minObj = { min: parseInt(i[0]) };
+  let maxObj = { max: parseInt(i[1]) };
+  let charObj = { char: i[2] };
+  let passObj = { pass: i[3] };
+  let entry = Object.assign({}, minObj, maxObj, charObj, passObj);
+  passwords.push(entry);
+});
+console.log(passwords);
 
-let cleanup = (list.replace(/\-/g,' ').replace(/\:/g,'')).split`\n`
-let array = []
+///Counters for # of valid passwords
 
-cleanup.forEach(function(i){
-  array.push(i.split` `)
+let validCount = 0
+let invalidCount = 0
+passwords.forEach(function(i){
+  if (((i.pass).match(i.char)).length <=i.max>=i.min) {
+  validCount = validCount++ 
+  } else {
+  invalidCount = invalidCount++
+  }
 })
-
-
-
-array.forEach(function(i){
-  let entry = [i[0], i[1], i[2], i[3]];
-  console.log(obj)
-
-})
-
-
-
