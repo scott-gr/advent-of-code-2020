@@ -1021,13 +1021,14 @@ array.forEach(function (i) {
 console.log(passwords);
 
 ///Counters for # of valid passwords
-
-let validCount = 0
-let invalidCount = 0
-passwords.forEach(function(i){
-  if (((i.pass).match(i.char)).length <=i.max>=i.min) {
-  validCount = validCount++ 
+let validCount = 0;
+let invalidCount = 0;
+let notnull = [];
+passwords.forEach((item) => {
+  const matches = item.pass.match(new RegExp(item.char, 'g'));
+  if (matches !== null) {
+    let matchlength = matches.length;
   } else {
-  invalidCount = invalidCount++
+    invalidCount++;
   }
-})
+});
