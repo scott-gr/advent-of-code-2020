@@ -17,14 +17,36 @@ body,
   font-family: 'Cabin', sans-serif;
 }
 
+.header {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  grid-area: header;
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
 .hero {
   color: var(--green);
   font-size: 3rem;
   font-family: 'IM Fell Double Pica', serif;
 }
 
+.day-header,
+.prompt-section,
+.tab {
+  margin-left: 4vw;
+  margin-right: 4vw;
+}
+
+.day-header {
+  font-family: 'IM Fell Double Pica', serif;
+  font-size: 3rem;
+}
+
 .show {
   opacity: 1;
+  transition: opacity 400ms;
 }
 .hide {
   opacity: 0;
@@ -40,10 +62,8 @@ body,
   width: 100%;
   height: 100%;
   grid-template-areas:
-
     'header header header header'
-    ' . main main . '
-    'footer footer footer footer';
+    ' . main main . ';
 }
 .days-grid {
   display: grid;
@@ -52,30 +72,82 @@ body,
   justify-content: space-around;
   align-content: space-around;
   row-gap: 2rem;
-  column-gap: .5rem;
+  column-gap: 0.5rem;
   grid-area: main;
   white-space: nowrap;
-  grid-template-columns:  auto auto auto auto auto ;
-
-}
-
-.header {
-  align-self: center;
-  justify-self: center;
-  text-align: center;
-  grid-area: header;
-  word-wrap: normal;
-  overflow-wrap: normal;
+  grid-template-columns: auto auto auto auto auto;
 }
 
 .day-block {
-  background-color: var(--red);
-  height: 60px;
-  width: 60px;
-  color: var(--white);
+  height: 70px;
+  width: 70px;
   text-align: center;
-  border-color: var(--lightred);
-  border-radius: 20%;
-  border-width: medium;
-  border-style: outset;
+  padding: 0;
+}
+
+.tab {
+  overflow: hidden;
+  background-color: var(--darkgreen);
+}
+
+/*button styling options*/
+button {
+  border-width: 6px;
+  border-radius: 10%;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: medium;
+  font-weight: bold;
+  text-align: center;
+}
+.greenbtn:hover {
+  background-color: var(--green);
+}
+.greenbtn.active {
+  background-color: var(--green);
+}
+.greenbtn {
+  background-color: inherit;
+  color: var(--white);
+  border-color: var(--green);
+}
+.redbtn {
+  background-color: var(--maroon);
+  border-color: var(--red);
+  color: var(--white);
+}
+.redbtn:hover {
+  background-color: var(--red);
+}
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .day-block {
+    height: 62px;
+    width: 62px;
+    font-size: .9em;
+  }
 }

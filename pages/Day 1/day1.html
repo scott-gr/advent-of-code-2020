@@ -16,7 +16,12 @@
   </header>
 
   <main>
-    <section class="prompt-section">
+    <div class="tab">
+      <button class="tablinks greenbtn left" onclick="openTab(event, 'Prompt')">Prompt</button>
+      <button class="tablinks greenbtn left" onclick="openTab(event, 'Bonus')">Bonus</button>
+      <button type="submit" class="redbtn right" onclick="location.href='../../index.html'">Back to Calendar</button>
+    </div>
+    <section id="Prompt" class="tabcontent prompt-section">
       <h3>Prompt:</h3>
       <pre class="prompt-text">
 After saving Christmas five years in a row, you've decided to take a vacation at a nice resort on a tropical
@@ -45,13 +50,10 @@ In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying the
 Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you
 multiply them together?
       </pre>
-    </section>
-
-    <section class="code-section">
       <h3>My Code:</h3>
-      <button class="reveal-button show" onclick="clickreveal()">Reveal Solution?</button>
+      <button class="reveal-button show redbtn" onclick="clickreveal()">Reveal Solution?</button>
       <pre class="code-text hide">
-        <code>
+        <code class="code">
   //Map list of strings to an array of numbers
   const arr = list.split('\n').map(Number);
 
@@ -77,11 +79,47 @@ multiply them together?
       </pre>
     </section>
 
+
+    <section id="Bonus" class="tabcontent prompt-section">
+      <h3>Bonus Prompt:</h3>
+      <pre class="prompt-text">
+The Elves in accounting are thankful for your help; one of them even offers you a starfish coin they had left over from a past vacation. They offer you a second one if you can find three numbers in your expense report that meet the same criteria.
+
+Using the above example again, the three entries that sum to 2020 are 979, 366, and 675. Multiplying them together produces the answer, 241861950.
+
+In your expense report, what is the product of the three entries that sum to 2020?
+      </pre>
+      <h3>My Code:</h3>
+      <button class="reveal-button show redbtn" onclick="clickreveal()">Reveal Solution?</button>
+      <pre class="code-text hide">
+        <code class>
+    const findtriplet = (arr) => {
+      let results = [];
+      let indexes = [];
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          const balance = sum - (arr[i] + arr[j]);
+          const item = arr.find((el) => el === balance);
+          if (item && !indexes.includes(i) && !indexes.includes[j]) {
+            results.push([arr[i], arr[j], item]);
+            indexes.push(i);
+            indexes.push(j);
+          }
+        }
+      }
+      return results;
+    };
+    console.log(findtriplet(arr, sum));
+        </code>
+      </pre>
+    </section>
+
   </main>
 
-  <script src='./day1.js'>
-  </script>
   <script src="../../script.js"></script>
+  <script type='module' src='./day1.js'>
+  </script>
+
 </body>
 
 </html>
