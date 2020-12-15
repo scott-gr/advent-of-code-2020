@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body onload="pageLoad()">
+<body onload="pageLoad(), defaultTab()">
   <header>
     <h1 class="day-header">
       Day 1
@@ -17,42 +17,47 @@
 
   <main>
     <div class="tab">
-      <button class="tablinks greenbtn left" onclick="openTab(event, 'Prompt')">Prompt</button>
+      <button class="tablinks greenbtn left defaultOpen" onclick="openTab(event, 'Prompt')">Prompt</button>
       <button class="tablinks greenbtn left" onclick="openTab(event, 'Bonus')">Bonus</button>
       <button type="submit" class="redbtn right" onclick="location.href='../../index.html'">Back to Calendar</button>
     </div>
     <section id="Prompt" class="tabcontent prompt-section">
       <h3>Prompt:</h3>
-      <pre class="prompt-text">
-After saving Christmas five years in a row, you've decided to take a vacation at a nice resort on a tropical
-island. Surely, Christmas will go on without you.
-The tropical island has its own currency and is entirely cash-only. The gold coins used there have a little
-picture of a starfish; the locals just call them stars. None of the currency exchanges seem to have heard of
-them, but somehow, you'll need to find fifty of these coins by the time you arrive so you can pay the deposit on
-your room.
-To save your vacation, you need to get all fifty stars by December 25th.
-Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the
-second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
-<hr>
-Before you leave, the Elves in accounting just need you to fix your expense report (your puzzle input);
-apparently, something isn't quite adding up.
-Specifically, they need you to find the two entries that sum to 2020 and then multiply those two numbers
-together.
-For example, suppose your expense report contained the following:
-1721
-979
-366
-299
-675
-1456
-In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying them together produces 1721 * 299 =
-514579, so the correct answer is 514579.
-Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you
-multiply them together?
-      </pre>
-      <h3>My Code:</h3>
+      <p class="prompt-text">
+        After saving Christmas five years in a row, you've decided to take a vacation at a nice resort on a tropical
+        island. Surely, Christmas will go on without you.</br>
+        The tropical island has its own currency and is entirely cash-only. The gold coins used there have a little
+        picture of a starfish; the locals just call them stars. None of the currency exchanges seem to have heard of
+        them, but somehow, you'll need to find fifty of these coins by the time you arrive so you can pay the deposit on
+        your room.</br>
+        To save your vacation, you need to get all fifty stars by December 25th.
+        Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the
+        second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
+        <hr>
+        Before you leave, the Elves in accounting just need you to fix your expense report (your puzzle input);
+        apparently, something isn't quite adding up.</br>
+        Specifically, they need you to find the two entries that sum to 2020 and then multiply those two numbers
+        together.
+        </br>
+        For example, suppose your expense report contained the following:</br>
+      <ul>
+        <li>1721</li>
+        <li>979</li>
+        <li>366</li>
+        <li>299</li>
+        <li>675</li>
+        <li>1456</li>
+      </ul>
+      In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying them together produces 1721 * 299 =
+      514579, so the correct answer is 514579.
+      </br>
+      Of course, your expense report is much larger.</br>
+      Find the two entries that sum to 2020; what do you get if you
+      multiply them together?
+      </p>
       <button class="reveal-button show redbtn" onclick="clickreveal()">Reveal Solution?</button>
       <pre class="code-text hide">
+        <h3>  My Code:</h3>
         <code class="code">
   //Map list of strings to an array of numbers
   const arr = list.split('\n').map(Number);
