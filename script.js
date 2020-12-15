@@ -1,6 +1,6 @@
 const revealBtn = document.querySelectorAll('.reveal-button');
 const codeText = document.querySelectorAll('.code-text');
-const defaultOpen = document.querySelectorAll('.defaultOpen');
+const defaultOpen = document.querySelector('.defaultOpen');
 const tabcontent = document.querySelectorAll('.tabcontent');
 const tablinks = document.querySelectorAll('.tablinks');
 const hidden = document.querySelectorAll('.hide');
